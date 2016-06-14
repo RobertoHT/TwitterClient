@@ -1,4 +1,4 @@
-package edu.galileo.com.twitterclient.images;
+package edu.galileo.com.twitterclient.images.ui;
 
 import java.util.List;
 

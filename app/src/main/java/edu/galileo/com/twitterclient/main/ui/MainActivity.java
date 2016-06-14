@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import edu.galileo.com.twitterclient.LoginActivity;
 import edu.galileo.com.twitterclient.R;
 import edu.galileo.com.twitterclient.hashtags.HashtagsFragment;
-import edu.galileo.com.twitterclient.images.ImagesFragment;
+import edu.galileo.com.twitterclient.images.ui.ImagesFragment;
 import edu.galileo.com.twitterclient.main.ui.adapters.MainSectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
