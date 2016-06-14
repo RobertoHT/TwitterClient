@@ -3,6 +3,7 @@ package edu.galileo.com.twitterclient.main.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import edu.galileo.com.twitterclient.LoginActivity;
 import edu.galileo.com.twitterclient.R;
+import edu.galileo.com.twitterclient.hashtags.HashtagsFragment;
+import edu.galileo.com.twitterclient.images.ImagesFragment;
+import edu.galileo.com.twitterclient.main.ui.adapters.MainSectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.tabs)
     TabLayout tabs;
     @Bind(R.id.container)
-    ViewPager container;
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
+        setupAdapter();
+    }
+
+    private void setupAdapter(){
+        Fragment[] fragments = new Fragment[]{new ImagesFragment(), new HashtagsFragment()};
+        String[] titles = new String[]{getString(R.string.main_header_images), getString(R.string.main_header_hashtags)};
+        MainSectionsPagerAdapter adapter = new MainSectionsPagerAdapter(getSupportFragmentManager(),titles,fragments);
+        viewPager.setAdapter(adapter);
+        tabs.setupWithViewPager(viewPager);
     }
 
     @Override
