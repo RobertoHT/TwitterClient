@@ -8,8 +8,8 @@ import edu.galileo.com.twitterclient.entities.Image;
  * Created by praxis on 14/06/16.
  */
 public interface ImagesView {
-    void showElements();
-    void hideElements();
+    void showImages();
+    void hideImages();
     void showProgress();
     void hideProgress();
 
